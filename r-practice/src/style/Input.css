@@ -1,0 +1,48 @@
+.large{
+    height: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 1.2rem;
+}
+
+.medium{
+    height: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 1rem;
+}
+
+.small{
+    height: 30px;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-size: 0.8rem;
+}
+
+.blue{
+    color : blue;
+}
+.blue input{
+    border: solid 2px blue;
+}
+
+.tomato{
+    color: tomato;
+}
+.tomato input{
+    border: solid 2px tomato;
+}
+
+.grey{
+    color: grey;
+}
+.grey input{
+    border: solid 2px grey;
+}
+
+.tan{
+    color: #cd853f;
+}
+.tan input{
+    border: solid 2px #cd853f;
+}

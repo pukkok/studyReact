@@ -1,16 +1,20 @@
 import React from "react";
 
-function Movie ({id, ...rest}) {
+function Movie ({title, genres, cover, summary}) {
+    const style = {
+        width : '230px',
+        height : '500px',
+        backgroundColor : 'white',
+        margin : '10px',
+        boxShadow: 'rgba(0,0,0,0.35) 0px 5px 15px'
+    }
     return(
-        <>
-            <h1>무비 정보</h1>
-            <h3>{rest.title}</h3>
-            <h3>{rest.language}</h3>
-            <h3>{rest.release}</h3>
-            <h3>{rest.length}</h3>
-            <h3>{rest.author}</h3>
-            <h3>{rest.production}</h3>
-        </>
+        <div style={style}>
+            <img src={cover} alt={title}/>
+            <h3>{title}</h3>
+            <h4>{genres.join(" ")}</h4>
+            {/* <p>{summary}</p> */}
+        </div>
     )
 
 }

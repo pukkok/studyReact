@@ -1,0 +1,7 @@
+
+.lotto{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    font-size: 2rem;
+}

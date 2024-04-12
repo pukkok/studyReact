@@ -1,0 +1,58 @@
+.modal{
+    width: 500px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 5px 1px tan;
+    background-color: white;
+    z-index: 10;
+    position: fixed;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.open{
+    display: block;
+}
+
+.close{
+    display: none;
+}
+
+/* 모달 컨텐츠 */
+.modal-header, .modal-body, .modal-footer{
+    padding: 5px;
+}
+
+.modal-header{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.modal-body{
+    font-size: .9rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.modal-body input{
+    width: 60%;
+    height: 30%;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    padding-left: 7px;
+    color: grey;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
