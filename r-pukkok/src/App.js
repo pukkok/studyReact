@@ -1,61 +1,99 @@
-import React, {Component} from 'react'
-import './App.css'
-import Modal from './component/modal'
-import Button from './component/button'
+import React, {Component, useRef, useState, useEffect} from 'react'
+import Comment from './component/Comment'
 
-class App extends Component{
-    state = {
-        open: false
+function App(){
+    const postId = useRef(1)
+    const [comments, setComments] = useState([])
+    // console.log(comments)
+
+    const getComments = () => {
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId.current}`)
+        .then(res => res.json())
+        .then(comments => setComments(comments))
     }
 
-    openModal = () => {
-        this.setState({open : true})
+    const showNextComments = () => {
+        postId.current++
+        getComments()
     }
 
-    closeModal = () => {
-        this.clearInputs()
-        this.setState({open : false})
-    }
-    clearInputs = () => {
-        const inputs = document.querySelectorAll('.Modal-body input')
-        inputs.forEach(input=> input.value = '')
-        
-    }
+    useEffect(()=>{ // ComponentDidMount
+        getComments()
+    }, []) // 빈배열 : 초기 랜더링 시에만 콜백함수 실행 (없다면 ComponentDidUpdate)
 
-    componentDidUpdate(){
-        const firstInput = document.querySelector('.Modal-body input')
-        if(this.state.open){
-            firstInput.focus()
-        }
-    }
-
-    handleKeyUp = (e) => {
-        console.log(e.key)
-        if(e.key === 'Enter'){
-            this.closeModal()
-        }
-    }
-
-    render(){
-        const {open} = this.state
-
-        return (
-            <div className='App'>
-                <Button handleClick={this.openModal}>Add Todo</Button>
-                <Modal open={open}>
-                    <div className='Modal-header'>You want to add new todo?</div>
-                    <div className='Modal-body'>
-                        <label>todo name : <input type='text'></input></label><br/>
-                        <label>todo description: <input type='text' onKeyUp={this.handleKeyUp}></input></label>
-                    </div>
-                    <div className='Modal-footer'>
-                        <Button size='small'>Add</Button>
-                        <Button size='small' handleClick={this.closeModal}>Close</Button>
-                    </div>
-                </Modal>
-            </div>
-        )
-    }
+    return(
+        <>
+            <h1>블로그 ({postId.current})</h1>
+            <button onClick={showNextComments}>다음</button>
+            {comments.length>0 && comments.map(comment => <Comment key={comment.id} {...comment}/>)}
+        </>
+    )
 }
 
 export default App
+
+
+
+
+
+// class App extends Component{
+//     postId = useRef(1) // 블로그 글의 ID값
+
+//     state = {
+//         comments: [] // 해당 블로그의 댓글 목록
+//     }
+
+//     showNextComments = () => {
+//         this.postId++
+//         this.getComments()
+//     }
+
+//     getComments = () => {
+//         fetch(`https://jsonplaceholder.typicode.com/comments?postId=${this.postId}`)
+//         .then(res => res.json())
+//         .then(comments => this.setState({comments}))
+//     }
+
+//     componentDidMount(){
+//         this.getComments()
+//     }
+
+//     render(){
+//         const {comments} = this.state
+
+//         return(
+//             <>
+//                 <h1>블로그 ({this.postId})</h1>
+//                 <button onClick={this.showNextComments}>다음</button>
+//                 {comments.length>0 && comments.map(comment => <Comment key={comment.id} {...comment}/>)}
+//             </>
+//         )
+//     }
+// }
+
+// export default App
+
+
+// class App extends Component{
+//     constructor(props){
+//         super(props)
+//         this.ScrollBox = React.createRef()
+//     }
+
+//     moveBox = () =>{
+//         console.log(this.ScrollBox.current)
+//         const { scrollHeight, clientHeight } = this.ScrollBox.current
+//         this.ScrollBox.current.scrollTop = scrollHeight - clientHeight
+//     }
+
+//     render(){
+//         return(
+//             <>
+//                 <ScrollBox ref={this.ScrollBox}></ScrollBox> {/** 레퍼런스 설정 */}
+//                 <button onClick={this.moveBox}>맨 밑으로</button>
+//             </>
+//         )
+//     }
+// }
+
+// export default App
