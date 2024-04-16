@@ -39,9 +39,14 @@ class Cosmetic extends React.Component{
         if(inputValue.length===0) this.setState({filters:[]})    
     }
 
-    abc = () => {
-        let a = document.querySelector('select')
-        a.click()
+    over = () => {
+        let a = document.querySelector('.selectA')
+
+        a.size = a.length
+    }
+    leave = () => {
+        let a = document.querySelector('.selectA')
+        a.size = 1
     }
 
     render(){
@@ -50,10 +55,16 @@ class Cosmetic extends React.Component{
         return(
             <>
             <header>
-            <select onMouseOver={this.abc}>
-                <option>a</option>
-                <option>b</option>
-                <option>c</option>
+            <select className='selectA' onMouseOver={this.over} onMouseLeave={this.leave}>
+                <option style={{visibility:'visible' ,display:'block'}}>aaa</option>
+                <option>bbb</option>
+                <option>ccc</option>
+            </select>
+
+            <select onMouseOver={this.over} onMouseLeave={this.leave}>
+                <option>aaa</option>
+                <option>bbb</option>
+                <option>ccc</option>
             </select>
 
                 <Input handleChange={this.check} size='small' color='tan' placeholder='상품명을 입력하세요'/>

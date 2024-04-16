@@ -9,7 +9,8 @@ function App() {
 
   return (
     <>
-    {success ? <div>Home Page</div> : <Login id={loginData.USER_ID} password={loginData.USER_PASSWORD} setSuccess={setSuccess} />}
+    {success ? <div>Home Page</div> : 
+    <Login id={loginData.USER_ID} password={loginData.USER_PASSWORD} setSuccess={setSuccess} />}
     </> 
   )
 }

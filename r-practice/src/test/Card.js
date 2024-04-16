@@ -1,35 +1,38 @@
-import React , {Component, useState, useEffect} from 'react'
-import dummyData from './dummyData1'
+import React , { useState, useEffect} from 'react'
+import dummyData from '../dummy/dummyData1'
+
 
 function Card () {
+    let timer = null
+    let result = {}
 
     const [word, setWord] = useState('')
     const [meaning, setMeaning] = useState('')
-    // console.log(word)
 
     const choiceDummy = () => {
         let i = Math.floor(Math.random()*dummyData.length)
         return dummyData[i]
     }
 
-    const changeState = () => {
+    const pickData = () => {
         let data = choiceDummy()
-        let { word : dummyWord, meaning : dummyMeaning } = data
-        console.log('더미', dummyWord)
-        console.log('월드', word)
-        if(word === dummyWord){
-            changeState()
-        }else{
-            setWord(word => word = dummyWord)
-            setMeaning(dummyMeaning)
-        }
+        return result === data ? pickData() : result = data
     }
 
+    const changeState = () => {
+        let data = pickData()
+        const {word, meaning} = data
+
+        setWord(word)
+        setMeaning(meaning)
+    }
+    
     
     useEffect(()=>{
-        setInterval(() => {
+        changeState()
+        timer = setInterval(() => {
             changeState()
-        }, 500);
+        }, 1000);
     },[])
 
 

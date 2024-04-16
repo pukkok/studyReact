@@ -1,27 +1,28 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import '../style/Login.css'
 import Button from './Button'
 
 
-function Login ({ id, password, setSuccess }){
-    
-    const [inputId, setInputId] = useState('')
-    const [inputPassword, setPassword] = useState('')
+function Login ({ id, password, setSuccess, children }){
+
+    const [inputs, setInputs] = useState({
+        id:'',
+        pw:''
+    })
+
+    const {id : $id, pw : $pw} = inputs
 
     const valueCheck = (e) => {
         const { name, value } = e.target
-
-        if(name==='id'){
-            setInputId(value)
-        }
-        if(name==='password'){
-            setPassword(value)
-        }
+        setInputs({
+            ...inputs,
+            [name]: value
+        })
     }
 
     const login = (e) => {
         e.preventDefault()
-        if(inputId === id && inputPassword === password){
+        if($id === id && $pw === password){
             alert('로그인 성공!')
             return setSuccess(true)
         }else{
@@ -34,13 +35,14 @@ function Login ({ id, password, setSuccess }){
             <legend>LOGIN</legend>
             <div className='login-form'>
                 <div className='label-form'>
-                    <label><input type='text' placeholder='ID' onChange={valueCheck} value={inputId} name='id'/></label>
-                    <label><input type='password' placeholder='PASSWORD' onChange={valueCheck} value={inputPassword} name='password'/></label>
+                    <label><input type='text' placeholder='ID' onChange={valueCheck} value={$id} name='id' autoFocus/></label>
+                    <label><input type='password' placeholder='PASSWORD' onChange={valueCheck} value={$pw} name='pw'/></label>
                 </div>
-                <div>
-                    <Button shape='square' f={login}>로그인</Button>
+                <div className='button-form'>
+                    <Button shape='square' f={login}>LOGIN</Button>
                 </div>
             </div>
+            <div>{children}</div>
         </form>
     )
     

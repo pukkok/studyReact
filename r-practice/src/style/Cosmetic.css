@@ -11,7 +11,7 @@ header{
   
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
   }
   .sort-btns{
     all: unset;
@@ -67,3 +67,4 @@ header{
     text-align: center;
     margin-top: 15px;
   }
+
