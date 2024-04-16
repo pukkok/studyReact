@@ -1,5 +1,5 @@
 import React from "react";
-import '../style/button.css';
+import '../Style/button.css';
 
 function Button ({children, size, color, width, handleClick, disabled}){
     return <button 

@@ -1,0 +1,36 @@
+form{
+    box-sizing: border-box;
+    padding: 20px;
+    width: 500px;
+    height: 400px;
+    border: solid 1px slategrey;
+}
+
+legend{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-form{
+    display:flex;
+    justify-content: center;
+}
+
+.label-form{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.label-form label{
+    width: 100%;
+    max-width: 200px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-form label input{
+    padding-left: 8px;
+}

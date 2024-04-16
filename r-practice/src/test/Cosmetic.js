@@ -39,12 +39,23 @@ class Cosmetic extends React.Component{
         if(inputValue.length===0) this.setState({filters:[]})    
     }
 
+    abc = () => {
+        let a = document.querySelector('select')
+        a.click()
+    }
+
     render(){
         const {datas, filters} = this.state
 
         return(
             <>
             <header>
+            <select onMouseOver={this.abc}>
+                <option>a</option>
+                <option>b</option>
+                <option>c</option>
+            </select>
+
                 <Input handleChange={this.check} size='small' color='tan' placeholder='상품명을 입력하세요'/>
                 <button onClick={this.sooort} className='sort-btns'>Price</button>
             </header>

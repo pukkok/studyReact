@@ -1,6 +1,6 @@
 button{
     all: unset;
-    background-color: tomato;
+    background-color: lightskyblue;
     color: white;
     padding: 5px 10px;
     border-radius: 4px;
@@ -9,7 +9,7 @@ button{
 }
 
 button:hover{
-    background-color: lightsalmon;
+    background-color: skyblue;
     opacity: .8;
 }
 
@@ -19,4 +19,9 @@ button:disabled:hover{
     opacity: .8;
     color: #333;
     cursor:default;
+}
+
+.square{
+    width: 80px;
+    height: 80px;
 }

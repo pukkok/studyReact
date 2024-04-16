@@ -1,5 +1,10 @@
 .App{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 300px;
+  clear: both;
+  margin: 200px auto;
+}
+
+#map{
+  width: 800px;
+  height: 400px;
 }

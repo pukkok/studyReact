@@ -15,20 +15,21 @@ function Card () {
     const changeState = () => {
         let data = choiceDummy()
         let { word : dummyWord, meaning : dummyMeaning } = data
-        console.log(dummyWord)
+        console.log('더미', dummyWord)
+        console.log('월드', word)
         if(word === dummyWord){
             changeState()
         }else{
-            setWord(dummyWord)
+            setWord(word => word = dummyWord)
             setMeaning(dummyMeaning)
         }
     }
 
     
     useEffect(()=>{
-        changeState()
-        // setInterval(() => {
-        // }, 500);
+        setInterval(() => {
+            changeState()
+        }, 500);
     },[])
 
 
