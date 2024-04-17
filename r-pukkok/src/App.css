@@ -1,10 +1,154 @@
-.App{
-  width: 300px;
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+
+/* .App{
+  width: 500px;
   clear: both;
   margin: 200px auto;
-}
+} */
 
-#map{
+/* #map{
   width: 800px;
   height: 400px;
+} */
+
+/* .active{
+  background-color: yellow;
+  text-decoration: line-through;
+}
+
+.Upload{
+  display: none;
+} */
+
+.App{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-end;
+
+  font-family: 'Nanum Pen Script', cursive;
+  color: lightblue;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.App-search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 30px;
+  width: 500px;
+}
+
+.App-search-container input{
+  flex: 1;
+  outline: none;
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  height: 50px;
+  margin-right: 3px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: lightblue;
+  font-size: 1.3rem;
+}
+
+.App-search-container input::placeholder{
+  color: lightblue;
+}
+
+.App-search-container button{
+  all: unset;
+  background-color: lightblue;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 5px;
+  width: 80px;
+  height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.App-photo-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 5px;
+  align-items: flex-start;
+  width: 100%;
+  height: 700px;
+  overflow: auto;
+}
+
+.App-photo-container div{
+  font-size: 5rem;
+  margin-bottom: 30px;
+  text-align: right;
+  margin-left: auto;
+}
+
+.App-photo-container .App-photo-item{
+  flex: 1 0 25%;
+  max-width: 600px;
+  height: 200px;
+}
+
+.App-photo-container::-webkit-scrollbar {
+  width: 13px;  /* 스크롤바의 너비 */
+}
+
+.App-photo-container::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: lightblue; /* 스크롤바의 색상 */
+  
+  border-radius: 10px;
+}
+
+.App-photo-container::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}
+
+.App-Modal{
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  width: 100%;
+  padding: 2%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, .8);
+  display: none;
+  text-align: center;
+}
+.App-Modal.on{
+  display: block;
+}
+
+.App-img-box{
+  width: 100%;
+  height: 85%;
+  margin-bottom: 2%;
+}
+
+.App-img-box img{
+  width: 100%;
+  height: 100%;
+}
+
+.App-Modal button{
+  all: unset;
+  width: 80px;
+  padding: 10px;
+  margin: 0 20px;
+  font-size: 1.2rem;
+  border: solid 1px slategrey;
+  cursor: pointer;
+}
+.App-Modal button:hover{
+  background-color:lightsteelblue;
+  color: white;
 }

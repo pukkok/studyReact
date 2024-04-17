@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+.Scroll-tabs{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.Scroll-tab{
+    flex: 1 1 25%;
+    height: 5rem;
+    background-color: rgba(255, 255, 255, .2);
+    margin-right: .1rem;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: 1s linear;
+}
+
+.Scroll-tab:hover{
+    background-color: rgba(255, 255, 255, .5);
+}
+
+
+.Scroll-container{
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.Scroll-content{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+.Scroll-content span{
+    color: white;
+    opacity: .9;
+    font-size: 3.5rem;
+    font-weight: bold;
+    position: absolute;
+    text-align: left;
+    top: 50%;
+    left: 5%;
+    letter-spacing: 2px;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.Scroll-content:nth-child(1){
+    /* background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url("https://c.wallhere.com/photos/ea/96/1920x1080_px_clouds_landscape_nature_Trees-706530.jpg!d"); */
+    background-image: url("https://c.wallhere.com/photos/ea/96/1920x1080_px_clouds_landscape_nature_Trees-706530.jpg!d");
+}
+.Scroll-content:nth-child(2){
+    /* background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('https://lh5.googleusercontent.com/proxy/wEpOqmiqeFMgC_Lbapvbl0Bp-W7_KATCqDiHwJiU0eEzJnlvQKYBimsRHdpk7APXa-ytH3C9jcxX-ZIs12RvCbCqZf7655cZbKVxHZTPl3ulqEwFdalAtBP5'); */
+    background-image: url('https://lh5.googleusercontent.com/proxy/wEpOqmiqeFMgC_Lbapvbl0Bp-W7_KATCqDiHwJiU0eEzJnlvQKYBimsRHdpk7APXa-ytH3C9jcxX-ZIs12RvCbCqZf7655cZbKVxHZTPl3ulqEwFdalAtBP5');
+}
+.Scroll-content:nth-child(3){
+    /* background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url("http://file.instiz.net/data/file/20121125/5/6/0/5609249762358c2bcb65a46580549c99"); */
+    background-image: url("http://file.instiz.net/data/file/20121125/5/6/0/5609249762358c2bcb65a46580549c99");
+}
+.Scroll-content:nth-child(4){
+    /* background-image: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url("https://www.institutostrom.org/wp-content/uploads/2018/04/NZ.jpg"); */
+    background-image: url("https://www.institutostrom.org/wp-content/uploads/2018/04/NZ.jpg");
+}
