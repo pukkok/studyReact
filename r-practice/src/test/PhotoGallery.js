@@ -33,21 +33,18 @@ function PhotoGallery () {
         <>
             <button onClick={addPhoto}>사진 추가하기</button>
             <h1> 포토 갤러리 </h1>
-            ---------------------------
             <div style={boxStyle}>
             {photos.map((photo, i) => {
                 return(
-                    <>
-                        <div key={i} onClick={ e => removePhoto(e, i)} id={i}>
-                            <img style={{width:'100%', height: '100%'}}  src = {photo}></img>
-                        </div>
-                    </>
+                    <div key={i+'b'} onClick={ e => removePhoto(e, i)} id={i}>
+                        <img style={{width:'100%', height: '100%'}}  src = {photo}></img>
+                    </div>
                 ) 
             })}
             </div>
             {photos.map((photo, i)=> {
                 return (
-                <div key={i}>
+                <div key={i+'a'}>
                     경로 : {photo}
                 </div>
                 )
