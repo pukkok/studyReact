@@ -38,13 +38,14 @@ function CardGame () {
         })
     }
 
-    async function starter (){
+    async function starter () {
         makeCardPair()
         await setPairs([...$pairs])
         BackFlip()
     }
 
     useEffect(()=>{
+
         starter()
     },[])
 
