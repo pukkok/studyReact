@@ -3,7 +3,10 @@ import '../style/CardGame.css'
 
 function CardGame () {
     const numOfCards = 20
-    const icon = ['🍕','🍔','🍟','🍗','🥩','🍖','🌮','🥞','🥨','🍧']
+
+    const foods = ['🍕','🍔','🍟','🍗','🥩','🍖','🌮','🥞','🥨','🍧']
+    // const animals = ['🐺','🐱','🦁','🐯','🦒','🐮','🐷','🐰','🐻','🐹','🐼','🐨','🐸','🐭','🦓']
+
     const [pairs, setPairs] = useState([])
 
     const randomNumber = (n) => {
@@ -12,13 +15,13 @@ function CardGame () {
 
     const $pairs = []
     const makeCardPair = () => {
-        let idx = randomNumber(icon.length)
+        let idx = randomNumber(numOfCards / 2)
 
-        let isValidPair = [...$pairs].filter(pair => pair === icon[idx])
+        let isValidPair = [...$pairs].filter(pair => pair === foods[idx])
         if(isValidPair.length === 2){
             return makeCardPair()
         }
-        $pairs.push(icon[idx])
+        $pairs.push(foods[idx])
 
         if($pairs.length<numOfCards){
             makeCardPair()
@@ -27,12 +30,12 @@ function CardGame () {
 
     const BackFlip = () => {
         let cards = document.querySelectorAll('.card')
-        for (let i = 0; i< cards.length; i++){
-            cards[i].classList.add('forward')
+        cards.forEach(card => {
+            card.classList.remove('back')
             setTimeout(() => {
-                cards[i].classList.remove('forward')
-            }, 2000);
-        }
+                card.classList.add('back')
+            }, 5000);
+        })
     }
 
     async function starter (){
@@ -45,57 +48,65 @@ function CardGame () {
         starter()
     },[])
 
-    const [selectIds, setSelectIds] = useState([])
+    const [cards, setCards] = useState({
+        active : [],
+        finished : []
+    })
 
-    const [finish, setFinsh] = useState([])
-
-    const flip = async (id) => {
-
-        if(!selectIds.includes(id)){
-           await setSelectIds([...selectIds, id])
-           correctCard()
-        }
-        
-    }
-
-    const correctCard = () => {
-        const cards = document.querySelectorAll('.active span')
-        if(cards.length===2){
-            if(cards[0].innerText === cards[1].innerText){
-                cards.forEach(card=>{
-                    // card.parentElement.classList.remove('active')
-                    console.log(finish)
-                })
-                setFinsh([...finish, cards[0].parentElement.id, cards[1].parentElement.id])
-            }else{
-                setSelectIds([])
-            }
+    const flip = (id) => {
+        if(!cards.finished.includes(id)){
+            setCards({...cards, active: [...cards.active, id]})
         }
     }
 
     
 
     useEffect(()=>{
-        if(selectIds.length===2){
-            // setSelectIds([])
-            
+        const correctCard = () => {
+            const A = document.getElementById(cards.active[0])
+            const B = document.getElementById(cards.active[1])
+            let valueA = A.querySelector('span').innerText
+            let valueB = B.querySelector('span').innerText
+            if(valueA === valueB){
+                setCards({...cards,
+                    active: [], 
+                    finished:[...cards.finished, ...cards.active]
+                })
+            }else{
+                setCards({...cards,
+                    active: []
+                })
+            }
         }
-        // if(selectIds.length>2){
-        //     setSelectIds([])
-        // }
+
+        if(cards.active.length===2){
+            setTimeout(correctCard, 500)
+        }
+        if(cards.finished.length===numOfCards){
+            alert('승리')
+            setCards({...cards, active : [], finished: []})
+            let restart = prompt('다시하기 예/아니오','예')
+            if(restart==='예'){
+                starter()
+            }
+        }
         
-    },[selectIds])
+    },[cards])
+
+    
 
     return(
         <div className="card-container">
         {pairs.length>0 && pairs.map((data, id)=>{
-            const active = selectIds.includes(id)
-            const end = finish.includes(id)
-            // const activeStyle = active ? 'active' : end ? 'finished' : 'back'
-            const endStyle = end ? 'finished' : active ? 'active' : 'back'
+            const {active, finished} = cards
+            const activeCard = active.includes(id)
+            const finishedCard = finished.includes(id)
+            const activeStyle = activeCard ? 'active' : 'back'
+            const finishedStyle = finishedCard ? 'finished' : ''
             return (
-                    <div key={id} className={`card ${endStyle}`} id={id}
-                    onClick={()=>flip(id)}><span>{data}</span></div>
+                <div key={id} className={`card ${activeStyle} ${finishedStyle}`} id={id}
+                onClick={()=>flip(id)}><span>{data}</span>
+                </div>
             )
         })}
         </div>
