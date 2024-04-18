@@ -1,4 +1,4 @@
-const dummyData = [
+const dictionaryData = [
     {
         word: 'apple',
         meaning: '사과'
@@ -45,4 +45,4 @@ const dummyData = [
     },
   
 ]
-export default dummyData;
+export default dictionaryData;

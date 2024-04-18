@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+
+.App{
+  width: 50%;
+  margin: 0 auto;
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.App .thumbnail{
+  width: 100%;
+}
+
+.App .thumbnail-info{
+  padding: 1rem 2rem;
+  border-top: 1px solid lightgrey;
+}
+
+.App .thumbnail-img{
+  position: relative;
+}
+
+.App .thumbnail-img .likes{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: .3s linear;
+}
+
+.App .thumbnail-info.active{
+  color: orange;
+}
+
+.App .thumbnail-img .likes.active{
+  color: red;
+}

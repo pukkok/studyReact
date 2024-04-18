@@ -1,0 +1,14 @@
+.Card-container{
+    cursor: pointer;
+    transition: .5s linear;
+    box-shadow: 0 .1rem .3rem lightgrey;
+}
+
+.Card-contents{
+    height: 100%;
+}
+
+.Card-container.outlined{
+    border: 1px solid lightblue;
+    box-shadow: initial;
+}

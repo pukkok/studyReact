@@ -1,15 +1,12 @@
 import './App.css';
 import React, { Component , useState} from 'react'
-
-import FriendFilter from './test/friendFilter';
-import Lotto from './test/lotto';
-import PhotoGallery from './test/PhotoGallery';
+import CardGame from './Game/CardGame';
 
 function App() {
 
   return (
     <>
-      <PhotoGallery/>
+      <CardGame/>
     </> 
   )
 }
