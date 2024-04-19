@@ -1,32 +1,13 @@
 import React, { useEffect, useState } from "react";
 import '../style/CardGame.css'
+import CardPairMaker from "./CardPairMaker";
 
-function CardGame () {
-    const numOfCards = 20
-
-    const foods = ['🍕','🍔','🍟','🍗','🥩','🍖','🌮','🥞','🥨','🍧']
-    // const animals = ['🐺','🐱','🦁','🐯','🦒','🐮','🐷','🐰','🐻','🐹','🐼','🐨','🐸','🐭','🦓']
+function TestCardGame () {
 
     const [pairs, setPairs] = useState([])
 
-    const randomNumber = (n) => {
-        return Math.floor(Math.random()*n)
-    }
-
     const $pairs = []
-    const makeCardPair = () => {
-        let idx = randomNumber(numOfCards / 2)
-
-        let isValidPair = [...$pairs].filter(pair => pair === foods[idx])
-        if(isValidPair.length === 2){
-            return makeCardPair()
-        }
-        $pairs.push(foods[idx])
-
-        if($pairs.length<numOfCards){
-            makeCardPair()
-        }
-    }
+    CardPairMaker('foods')
 
     const BackFlip = () => {
         let cards = document.querySelectorAll('.card')
@@ -39,7 +20,6 @@ function CardGame () {
     }
 
     const starter = async () => {
-        makeCardPair()
         await setPairs([...$pairs])
         BackFlip()
     }
@@ -118,4 +98,4 @@ function CardGame () {
         </div>
     )
 }
-export default CardGame
+export default TestCardGame

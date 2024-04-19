@@ -3,12 +3,6 @@ import logo from './logo.svg'
 import './App.css'
 import Button from './Component/Button'
 
-// useEffect(콜백함수, 의존성 배열)
-// 의존성 배열 : dependency Array
-// Effect => 사이드 이펙트(side Effect) 
-// 부수효과 => 초기렌더링, 업데이트 될때마다 뭔가 해줘야 하는 것들
-// ex 타이머, 서버에서 데이터 조회, 수정, 알림창 표시
-
 function App() {
     const [user, setUser] = useState({
         name : 'pukkok',

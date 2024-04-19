@@ -4,14 +4,6 @@ import useCounter from './CustomHook/useCounter'
 import animals from './Dummy/dummyAnimal'
 import words from './Dummy/dummyWord'
 
-// useEffect(콜백함수, 의존성 배열)
-// 의존성 배열 : dependency Array
-// Effect => 사이드 이펙트(side Effect) 
-// 부수효과 => 초기렌더링, 업데이트 될때마다 뭔가 해줘야 하는 것들
-// ex 타이머, 서버에서 데이터 조회, 수정, 알림창 표시
-// 의존성 배열에 state, props를 설정한경우 : 해당 state, props가
-// 변경 될때마다 콜백함수가 실행됨 // componentDidUpdate처럼 동작
-
 function App() {
 
     // 이미지 갤러리 로직
