@@ -21,7 +21,6 @@ class App extends Component{
     }
 
     radioBtnSelect = (e) => {
-
         this.setState({selectedValue: e.target.value})
     }
 
